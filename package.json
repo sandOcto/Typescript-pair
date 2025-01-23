@@ -1,0 +1,34 @@
+{
+  "name": "kata-btp-ts",
+  "version": "1.0.0",
+  "main": "src/index.js",
+  "scripts": {
+    "check:nodejs-version": "ts-node tools/verifier-version-nodejs.ts",
+    "prebuild": "npm run check:nodejs-version",
+    "build": "tsc --build tsconfig.json",
+    "prestart": "npm run build",
+    "start": "node dist/src/cli.js",
+    "pretest": "npm run check:nodejs-version",
+    "test": "mocha --require ts-node/register --extension ts --recursive test"
+  },
+  "engines": {
+    "node": "16"
+  },
+  "license": "ISC",
+  "devDependencies": {
+    "@types/mocha": "^9.1.0",
+    "@types/node": "^16.0.0",
+    "@types/uuid": "^8.3.4",
+    "mocha": "^9.2.0",
+    "nyc": "^15.1.0",
+    "sinon": "^12.0.1",
+    "test-console": "^2.0.0",
+    "ts-node": "^10.4.0",
+    "typescript": "^4.5.5"
+  },
+  "dependencies": {
+    "moment": "^2.29.1",
+    "synchro-prompt": "^1.1.0",
+    "uuid": "^8.3.2"
+  }
+}
